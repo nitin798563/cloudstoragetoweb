@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Media Gallery</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <h1>📸 Media Gallery</h1>
+
+    <section>
+        <h2>Photos</h2>
+        <div class="gallery">
+            {% for photo in photos %}
+                <div class="card">
+                    <img src="{{ photo.image_url }}" alt="{{ photo.title }}">
+                    <p>{{ photo.title }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section>
+        <h2>Videos</h2>
+        <div class="gallery">
+            {% for video in videos %}
+                <div class="card">
+                    <iframe src="{{ video.video_url }}" frameborder="0" allowfullscreen></iframe>
+                    <p>{{ video.title }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+</body>
+</html>
