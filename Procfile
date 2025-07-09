@@ -1,1 +1,1 @@
-web: gunicorn cloudtoewbsite.wsgi
+web: gunicorn cloudtoewbsite.wsgi:application
