@@ -17,6 +17,7 @@ import cloudinary.api
 from imagekitio import ImageKit
 from dotenv import load_dotenv
 import os
+import dj_database_url
 
 #load variables from .env file
 load_dotenv()
@@ -34,7 +35,7 @@ SECRET_KEY = "django-insecure-om^28!j#(m+$sr#hp3^8y7-k3z=e(r*%3a+yx8@*t2d8=j+eg%
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['cloudstoragetoweb-2.onrender.com']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -86,14 +87,10 @@ WSGI_APPLICATION = "cloudtowebsite.wsgi.application"
 # https://docs.djangoproject.com/en/5.2/ref/settings/#databases
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.getenv('DB_NAME'),
-        'USER': os.getenv('DB_USERNAME'),
-        'PASSWORD': os.getenv('DB_PASSWORD'),
-        'HOST': 'localhost',
-        'PORT': '3306',
-    }
+    'default': dj_database_url.config(
+        default = os.getenv("DATABASE_URL"),
+        conn_max_age = 600',
+    )   
 }
 
 
