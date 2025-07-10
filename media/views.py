@@ -17,5 +17,13 @@ def create_admin_on_render(request):
     except Exception as e:
         return HttpResponse(f"❌ Error: {e}")
 
+def migrate_view(request):
+    try:
+        call_command('makemigrations')
+        call_command('migrate')
+        return HttpResponse("✅ Migration done successfully!")
+    except Exception as e:
+        return HttpResponse(f"❌ Migration error: {e}")
+
 
 
