@@ -19,3 +19,4 @@ sqlparse==0.5.3
 tzdata==2025.2
 urllib3==1.26.20
 dj-database-url
+psycopg2-binary
