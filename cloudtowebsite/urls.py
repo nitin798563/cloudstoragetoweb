@@ -22,7 +22,6 @@ from media import views
 urlpatterns = [
     path("adminpanelmanager/", admin.site.urls),
     path('',views.home),
-    path('load-admin/', views.create_admin_on_render),
-    path('run-migrations/', views.migrate_view)
+   
 ]
 
