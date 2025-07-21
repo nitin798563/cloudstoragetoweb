@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: cloudstoragetoweb-2
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn cloudtowebsite.wsgi:application"
+    preDeployCommand: |
+      python manage.py makemigrations --noinput
+      python manage.py migrate --noinput
